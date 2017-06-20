@@ -1,11 +1,11 @@
-const transformFields = (object = {}) => {
+const transformFields = (object = {}, keyName = 'type', valueName = 'meta') => {
   const result = []
   const entries = Object.entries(object)
 
   for (const [key, value] of entries) {
     result.push({
-      type: key,
-      meta: value,
+      [keyName]: key,
+      [valueName]: value,
     })
   }
 
