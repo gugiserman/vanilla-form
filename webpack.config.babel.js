@@ -67,7 +67,10 @@ module.exports = {
 
   resolve: {
     alias: {
+      mock: path.join(__dirname, '/src/mock'),
+      utils: path.join(__dirname, '/src/utils'),
       assets: path.join(__dirname, '/src/assets'),
+      components: path.join(__dirname, '/src/components'),
     },
   },
 
