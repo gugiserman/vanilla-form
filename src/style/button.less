@@ -6,6 +6,8 @@
   font-size: 14px;
   border: 1px solid @light-gray;
   border-radius: 45px;
+  cursor: pointer;
+  transition: 0.1s ease all;
 
   &:hover {
     transform: scale(.95);
@@ -13,5 +15,10 @@
 
   &:focus {
     opacity: .7;
+  }
+
+  &.active {
+    color: @near-white;
+    background-color: @green;
   }
 }
