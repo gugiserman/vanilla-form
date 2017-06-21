@@ -8,14 +8,16 @@ import {
 } from 'components/fields/'
 
 class Form {
-  constructor(data = {}) {
+  constructor(data = {}, eventHandlers = {}) {
     validateFormData(data)
 
     this.id = data.id || getRandomId()
     this.fields = data.fields || []
+    this.element
 
-    this.element = this.renderForm(data)
-    this.renderFields()
+    this.renderForm(data)
+    this.renderFields(eventHandlers)
+    // this.bindFormEventListeners(eventHandlers)
   }
 
   renderForm({ id = this.id, name = this.id }) {
@@ -24,14 +26,16 @@ class Form {
     form.setAttribute('id', id)
     form.setAttribute('name', name)
 
-    return form
+    this.element = form
   }
 
-  renderFields() {
+  renderFields(eventHandlers) {
     const children = this.fields.map(({ component, meta }) => {
       switch (component) {
         case 'input':
-          return new Input(meta)
+          return new Input(meta, {
+            keyPress: eventHandlers.onInputChange,
+          })
         default:
           return null
       }
@@ -41,6 +45,9 @@ class Form {
       this.element.appendChild(child.element)
     )
   }
+
+  // bindFormEventListeners(eventHandlers) {
+  // }
 }
 
 export default Form

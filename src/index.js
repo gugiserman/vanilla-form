@@ -2,7 +2,13 @@ import 'babel-polyfill'
 import Form from 'components/Form'
 import data from 'mock/mock.json'
 
-const form = new Form(data)
+const eventHandlers = {
+  onInputChange(event, component) {
+    console.log('input change', event, component)
+  },
+}
+
+const form = new Form(data, eventHandlers)
 const formContainer = document.createElement('div')
 const container = document.getElementById('app-container')
 
