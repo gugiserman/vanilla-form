@@ -5,6 +5,7 @@ import {
 
 import {
   Input,
+  Upload,
   Button,
 } from 'components/fields/'
 
@@ -34,6 +35,7 @@ class Form {
   renderFields() {
     const {
       onInputChange,
+      onFileSelect,
       onButtonClick,
     } = this.eventHandlers
 
@@ -42,6 +44,10 @@ class Form {
         case 'input':
           return new Input(field, {
             keyPress: onInputChange,
+          })
+        case 'upload':
+          return new Upload(field, {
+            change: onFileSelect,
           })
         case 'button':
           return new Button(field, {

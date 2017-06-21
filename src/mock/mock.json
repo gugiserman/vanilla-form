@@ -65,6 +65,7 @@
 			"props": {
 				"name": "uplImage",
 				"id": "uplImage",
+				"type": "file",
 				"class": "upload-button"
 			}
 		},

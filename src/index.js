@@ -4,7 +4,11 @@ import data from 'mock/mock.json'
 
 const eventHandlers = {
   onInputChange(event, component) {
-    console.log('input change', event, component)
+    console.log('input change', event.target.value, component)
+  },
+
+  onFileSelect(event, component) {
+    console.log('file select', event.target.value, component.element.files[0])
   },
 
   onButtonClick(event, component) {
