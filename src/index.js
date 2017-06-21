@@ -27,6 +27,11 @@ const eventHandlers = {
       component.renderLabel()
     }, 2000)
   },
+
+  onSubmit(event, form) {
+    event.preventDefault()
+    console.log('form submit', event, form)
+  },
 }
 
 const form = new Form(data, eventHandlers)

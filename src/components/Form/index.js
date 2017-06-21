@@ -28,12 +28,24 @@ class Form {
     // this.bindFormEventListeners(eventHandlers)
   }
 
+  handleFormSubmit = (event) => {
+    const { onSubmit } = this.eventHandlers
+
+    if (!onSubmit || typeof onSubmit !== 'function') {
+      throw new Error('Form onSubmit eventHandler function is invalid!')
+    }
+
+    return onSubmit(event, this)
+  }
+
   renderForm() {
     const form = document.createElement('form')
 
     this.metadata.map(({ attr, value }) =>
       form.setAttribute(attr, value)
     )
+
+    form.addEventListener('submit', this.handleFormSubmit)
 
     this.element = form
   }
@@ -61,6 +73,10 @@ class Form {
             change: onFileSelect,
           })
         case 'button':
+          if (field.props.type === 'submit') {
+            return new Button(field)
+          }
+
           return new Button(field, {
             click: onButtonClick,
           })
