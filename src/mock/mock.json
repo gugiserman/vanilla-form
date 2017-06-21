@@ -2,7 +2,7 @@
   "fields": [
 		{
 			"component": "input",
-			"meta": {
+			"props": {
 				"name": "txtFullname",
 				"id": "txtFullname",
 				"value": "",
@@ -12,29 +12,29 @@
 		},
 		{
 			"component": "input",
-			"meta": {
+			"props": {
 				"name": "txtCpf",
 				"id": "txtCpf",
 				"value": "",
 				"type": "text",
-				"Mask": "000.000.000-00",
+				"mask": "000.000.000-00",
 				"class": "input"
 			}
 		},
 		{
 			"component": "input",
-			"meta": {
+			"props": {
 				"name": "txtTelephone",
 				"id": "txtTelefone",
 				"value": "",
 				"type": "text",
-				"Mask": "(00) 00000-0000",
+				"mask": "(00) 00000-0000",
 				"class": "input"
 			}
 		},
 		{
 			"component": "input",
-			"meta": {
+			"props": {
 				"name": "txtAddress",
 				"id": "txtAddress",
 				"value": "",
@@ -44,7 +44,7 @@
 		},
 		{
 			"component": "address",
-			"meta": {
+			"props": {
 				"name": "mapRenderer",
 				"id": "mapRenderer",
 				"class": "map-renderer"
@@ -52,7 +52,7 @@
 		},
 		{
 			"component": "input",
-			"meta": {
+			"props": {
 				"name": "txtComplement",
 				"id": "txtComplement",
 				"value": "",
@@ -62,7 +62,7 @@
 		},
 		{
 			"component": "upload",
-			"meta": {
+			"props": {
 				"name": "uplImage",
 				"id": "uplImage",
 				"class": "upload-button"
@@ -70,7 +70,7 @@
 		},
 		{
 			"component": "image",
-			"meta": {
+			"props": {
 				"name": "imgAvatar",
 				"id": "imgAvatar",
 				"class": "image"
@@ -78,7 +78,8 @@
 		},
 		{
 			"component": "button",
-			"meta": {
+			"label": "Save",
+			"props": {
 				"name": "btnSave",
 				"id": "btnSave",
 				"value": "",

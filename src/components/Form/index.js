@@ -5,6 +5,7 @@ import {
 
 import {
   Input,
+  Button,
 } from 'components/fields/'
 
 class Form {
@@ -13,10 +14,11 @@ class Form {
 
     this.id = data.id || getRandomId()
     this.fields = data.fields || []
+    this.eventHandlers = eventHandlers
     this.element
 
     this.renderForm(data)
-    this.renderFields(eventHandlers)
+    this.renderFields()
     // this.bindFormEventListeners(eventHandlers)
   }
 
@@ -29,17 +31,26 @@ class Form {
     this.element = form
   }
 
-  renderFields(eventHandlers) {
-    const children = this.fields.map(({ component, meta }) => {
-      switch (component) {
+  renderFields() {
+    const {
+      onInputChange,
+      onButtonClick,
+    } = this.eventHandlers
+
+    const children = this.fields.map(field => {
+      switch (field.component) {
         case 'input':
-          return new Input(meta, {
-            keyPress: eventHandlers.onInputChange,
+          return new Input(field, {
+            keyPress: onInputChange,
+          })
+        case 'button':
+          return new Button(field, {
+            click: onButtonClick,
           })
         default:
           return null
       }
-    }).filter(field => field !== null)
+    }).filter(child => child && child.element)
 
     children.forEach(child =>
       this.element.appendChild(child.element)

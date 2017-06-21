@@ -5,28 +5,35 @@ import {
 } from 'utils/'
 
 class Component {
-  constructor(data = {}, eventHandlers = {}) {
-    this.id = data.id || getRandomId()
-    this.data = data
-    this.metadata = arrayFromObject(data, 'attr', 'value')
+  constructor({ component, props }, eventHandlers = {}) {
+    this.id = props.id || getRandomId()
+    this.props = props
+    this.component = component
+    this.metadata = arrayFromObject(props, 'attr', 'value')
+    this.eventHandlers = eventHandlers
     this.element
 
     this.render()
-    this.bindEventListeners(eventHandlers)
+    this.bindEventListeners()
   }
 
   render() {
     let tagName
 
     switch (this.component) {
+      case 'button':
+        tagName = 'button'
+        break
       case 'image':
         tagName = 'img'
         break
       case 'input':
       case 'upload':
       case 'address':
-      default:
         tagName = 'input'
+        break
+      default:
+        return null
     }
 
     const input = document.createElement(tagName)
@@ -38,8 +45,12 @@ class Component {
     this.element = input
   }
 
-  bindEventListeners(eventHandlers) {
-    const entries = Object.entries(eventHandlers)
+  bindEventListeners() {
+    if (!this.element) {
+      return false
+    }
+
+    const entries = Object.entries(this.eventHandlers)
 
     for (const entry of entries) {
       const name = sanitizeEventName(entry[0])

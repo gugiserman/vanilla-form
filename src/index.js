@@ -6,6 +6,16 @@ const eventHandlers = {
   onInputChange(event, component) {
     console.log('input change', event, component)
   },
+
+  onButtonClick(event, component) {
+    event.preventDefault()
+    console.log('button click', event, component)
+
+    component.renderLabel('loading...')
+    setTimeout(() => {
+      component.renderLabel()
+    }, 2000)
+  },
 }
 
 const form = new Form(data, eventHandlers)
