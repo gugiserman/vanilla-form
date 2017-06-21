@@ -1,3 +1,7 @@
+.input-container {
+  position: relative;
+}
+
 .input {
   width: 90%;
   border-width: 0 0 1px 0;
@@ -10,6 +14,15 @@
     color: transparent;
     font-size: 0;
   }
+}
+
+.input-label {
+  position: absolute;
+  color: @gray;
+  margin-top: -42px;
+  margin-left: 30px;
+  font-size: 14px;
+  transition: 0.1s ease all;
 }
 
 .input:not(:placeholder-shown):valid ~ .input-label {
@@ -26,11 +39,9 @@
   margin-top: -57px;
 }
 
-.input-label {
+.input-loading-feedback {
   position: absolute;
-  color: @gray;
-  margin-top: -42px;
-  margin-left: 30px;
-  font-size: 14px;
-  transition: 0.1s ease all;
+  color: @light-gray;
+  top: 0;
+  right: 30px;
 }

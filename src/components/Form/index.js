@@ -5,7 +5,8 @@ import {
 } from 'utils/'
 
 import {
-  Input,
+  TextInput,
+  AddressInput,
   Upload,
   Button,
 } from 'components/fields/'
@@ -41,13 +42,18 @@ class Form {
     const {
       onInputChange,
       onFileSelect,
+      onAddressSelect,
       onButtonClick,
     } = this.eventHandlers
 
     const children = this.fields.map(field => {
       switch (field.component) {
+        case 'address':
+          return new AddressInput(field, {
+            change: onAddressSelect,
+          })
         case 'input':
-          return new Input(field, {
+          return new TextInput(field, {
             keyPress: onInputChange,
           })
         case 'upload':

@@ -10,6 +10,10 @@ const eventHandlers = {
     console.log('input change', event.target.value, component)
   },
 
+  onAddressSelect(event, component) {
+    console.log('address input change', event.target.value, component)
+  },
+
   onFileSelect(event, component) {
     console.log('file select', event.target.value, component.element.files[0])
   },

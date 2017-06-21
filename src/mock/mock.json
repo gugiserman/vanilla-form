@@ -46,7 +46,7 @@
 			}
 		},
 		{
-			"component": "input",
+			"component": "address",
 			"props": {
 				"name": "txtAddress",
 				"id": "txtAddress",
@@ -58,7 +58,7 @@
 			}
 		},
 		{
-			"component": "address",
+			"component": "map",
 			"props": {
 				"name": "mapRenderer",
 				"id": "mapRenderer",

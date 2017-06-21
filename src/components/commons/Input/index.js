@@ -3,6 +3,7 @@ import { Component } from 'commons/'
 class Input extends Component {
   constructor(data, eventHandlers) {
     super(data, eventHandlers)
+    this.inputElement = this.element
     this.renderLabel()
   }
 
