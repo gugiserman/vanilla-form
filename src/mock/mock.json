@@ -1,62 +1,89 @@
 {
-  "fields": {
-    	"input": {
-			"name": "txtFullname",
-			"id": "txtFullname",
-			"value": "",
-			"type": "text",
-			"class": "input"
+  "fields": [
+		{
+			"component": "input",
+			"meta": {
+				"name": "txtFullname",
+				"id": "txtFullname",
+				"value": "",
+				"type": "text",
+				"class": "input"
+			}
 		},
-		"input": {
-			"name": "txtCpf",
-			"id": "txtCpf",
-			"value": "",
-			"type": "text",
-			"Mask": "000.000.000-00",
-			"class": "input"
+		{
+			"component": "input",
+			"meta": {
+				"name": "txtCpf",
+				"id": "txtCpf",
+				"value": "",
+				"type": "text",
+				"Mask": "000.000.000-00",
+				"class": "input"
+			}
 		},
-		"input": {
-			"name": "txtTelephone",
-			"id": "txtTelefone",
-			"value": "",
-			"type": "text",
-			"Mask": "(00) 00000-0000",
-			"class": "input"
+		{
+			"component": "input",
+			"meta": {
+				"name": "txtTelephone",
+				"id": "txtTelefone",
+				"value": "",
+				"type": "text",
+				"Mask": "(00) 00000-0000",
+				"class": "input"
+			}
 		},
-		"input": {
-			"name": "txtAddress",
-			"id": "txtAddress",
-			"value": "",
-			"type": "text",
-			"class": "input"
+		{
+			"component": "input",
+			"meta": {
+				"name": "txtAddress",
+				"id": "txtAddress",
+				"value": "",
+				"type": "text",
+				"class": "input"
+			}
 		},
-		"map": {
-			"name": "mapRenderer",
-			"id": "mapRenderer",
-			"class": "map-renderer"
+		{
+			"component": "address",
+			"meta": {
+				"name": "mapRenderer",
+				"id": "mapRenderer",
+				"class": "map-renderer"
+			}
 		},
-		"input": {
-			"name": "txtComplement",
-			"id": "txtComplement",
-			"value": "",
-			"type": "text",
-			"class": "input"
+		{
+			"component": "input",
+			"meta": {
+				"name": "txtComplement",
+				"id": "txtComplement",
+				"value": "",
+				"type": "text",
+				"class": "input"
+			}
 		},
-		"upload": {
-			"name": "uplImage",
-			"id": "uplImage",
-			"class": "upload-button"
+		{
+			"component": "upload",
+			"meta": {
+				"name": "uplImage",
+				"id": "uplImage",
+				"class": "upload-button"
+			}
 		},
-		"image": {
-			"name": "imgAvatar",
-			"id": "imgAvatar",
-			"class": "image"
+		{
+			"component": "image",
+			"meta": {
+				"name": "imgAvatar",
+				"id": "imgAvatar",
+				"class": "image"
+			}
 		},
-		"button": {
-			"name": "btnSave",
-			"id": "btnSave",
-			"value": "",
-			"class": "input"
+		{
+			"component": "button",
+			"meta": {
+				"name": "btnSave",
+				"id": "btnSave",
+				"value": "",
+				"class": "input"
+			}
 		}
-	}
+	]
 }

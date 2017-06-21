@@ -1,11 +1,9 @@
-const validateFormContainer = (data = {}) => {
-  if (typeof data === 'object' &&
-      typeof data.fields === 'object' &&
-      Object.keys(data.fields).length > 0) {
+const validateFormData = (data = {}) => {
+  if (typeof data === 'object' && Array.isArray(data.fields)) {
     return true
   }
 
   throw new Error('Form: Invalid data object.')
 }
 
-export default validateFormContainer
+export default validateFormData

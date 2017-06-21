@@ -1,4 +1,4 @@
-import { transformFields } from 'utils/'
+import { arrayFromObject } from 'utils/'
 
 class Input {
   constructor(data = {}) {
@@ -7,7 +7,7 @@ class Input {
     this.class = data.class
     this.type = data.type
     this.value = data.value
-    this.metadata = transformFields(data, 'attr', 'value')
+    this.metadata = arrayFromObject(data, 'attr', 'value')
     this.element = this.render()
 
     this.render()

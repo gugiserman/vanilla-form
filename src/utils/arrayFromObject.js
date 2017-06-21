@@ -1,4 +1,4 @@
-const transformFields = (object = {}, keyName = 'type', valueName = 'meta') => {
+const arrayFromObject = (object = {}, keyName = 'type', valueName = 'meta') => {
   const result = []
   const entries = Object.entries(object)
 
@@ -12,4 +12,4 @@ const transformFields = (object = {}, keyName = 'type', valueName = 'meta') => {
   return result
 }
 
-export default transformFields
+export default arrayFromObject

@@ -1,6 +1,5 @@
 import {
   validateFormData,
-  transformFields,
   getRandomId,
 } from 'utils/'
 
@@ -13,7 +12,7 @@ class Form {
     validateFormData(data)
 
     this.id = data.id || getRandomId()
-    this.fields = transformFields(data.fields)
+    this.fields = data.fields || []
 
     this.element = this.renderForm(data)
     this.renderFields()
@@ -29,8 +28,8 @@ class Form {
   }
 
   renderFields() {
-    const children = this.fields.map(({ type, meta }) => {
-      switch (type) {
+    const children = this.fields.map(({ component, meta }) => {
+      switch (component) {
         case 'input':
           return new Input(meta)
         default:
