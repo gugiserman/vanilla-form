@@ -9,7 +9,7 @@ class Component {
     this.id = props.id || getRandomId()
     this.props = props
     this.component = component
-    this.metadata = arrayFromObject(props, 'attr', 'value')
+    this.metadata = arrayFromObject(props)
     this.eventHandlers = eventHandlers
     this.element
 

@@ -1,6 +1,9 @@
 import 'babel-polyfill'
+
 import Form from 'components/Form'
 import data from 'mock/mock.json'
+
+import 'style/index.less'
 
 const eventHandlers = {
   onInputChange(event, component) {

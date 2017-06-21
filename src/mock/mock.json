@@ -1,13 +1,20 @@
 {
+	"props": {
+		"id": "form-vanilla",
+		"name": "form-vanilla",
+		"class": "form"
+	},
   "fields": [
 		{
 			"component": "input",
 			"props": {
 				"name": "txtFullname",
 				"id": "txtFullname",
+				"placeholder": "Name",
 				"value": "",
 				"type": "text",
-				"class": "input"
+				"class": "input",
+				"required": true
 			}
 		},
 		{
@@ -15,10 +22,12 @@
 			"props": {
 				"name": "txtCpf",
 				"id": "txtCpf",
+				"placeholder": "CPF",
 				"value": "",
 				"type": "text",
 				"mask": "000.000.000-00",
-				"class": "input"
+				"class": "input",
+				"required": true
 			}
 		},
 		{
@@ -26,10 +35,12 @@
 			"props": {
 				"name": "txtTelephone",
 				"id": "txtTelefone",
+				"placeholder": "Phone",
 				"value": "",
 				"type": "text",
 				"mask": "(00) 00000-0000",
-				"class": "input"
+				"class": "input",
+				"required": true
 			}
 		},
 		{
@@ -37,9 +48,11 @@
 			"props": {
 				"name": "txtAddress",
 				"id": "txtAddress",
+				"placeholder": "Address",
 				"value": "",
 				"type": "text",
-				"class": "input"
+				"class": "input",
+				"required": true
 			}
 		},
 		{
@@ -55,9 +68,11 @@
 			"props": {
 				"name": "txtComplement",
 				"id": "txtComplement",
+				"placeholder": "Address complement",
 				"value": "",
 				"type": "text",
-				"class": "input"
+				"class": "input",
+				"required": true
 			}
 		},
 		{
@@ -66,7 +81,8 @@
 				"name": "uplImage",
 				"id": "uplImage",
 				"type": "file",
-				"class": "upload-button"
+				"class": "upload-button",
+				"required": true
 			}
 		},
 		{
@@ -84,7 +100,7 @@
 				"name": "btnSave",
 				"id": "btnSave",
 				"value": "",
-				"class": "input"
+				"class": "button"
 			}
 		}
 	]

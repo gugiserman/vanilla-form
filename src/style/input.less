@@ -1,0 +1,36 @@
+.input {
+  width: 90%;
+  border-width: 0 0 1px 0;
+  border-color: @light-gray;
+  font-size: 14px;
+  color: @dark-gray;
+  padding: 16px 10px 8px 10px;
+
+  &::placeholder {
+    color: transparent;
+    font-size: 0;
+  }
+}
+
+.input:not(:placeholder-shown):valid ~ .input-label {
+  color: @green;
+}
+
+.input:not(:placeholder-shown):invalid ~ .input-label {
+  color: @red;
+}
+
+.input-label {
+  position: absolute;
+  color: @gray;
+  margin-top: -42px;
+  margin-left: 30px;
+  font-size: 14px;
+  transition: 0.1s ease all;
+}
+
+.input:focus ~ .input-label,
+input:not(:focus):valid ~ .input-label {
+  font-size: 10px;
+  margin-top: -55px;
+}

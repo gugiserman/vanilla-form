@@ -69,10 +69,11 @@ module.exports = {
     alias: {
       mock: path.join(__dirname, '/src/mock'),
       utils: path.join(__dirname, '/src/utils'),
+      style: path.join(__dirname, '/src/style'),
       assets: path.join(__dirname, '/src/assets'),
-      components: path.join(__dirname, '/src/components'),
-      commons: path.join(__dirname, '/src/components/commons'),
       fields: path.join(__dirname, '/src/components/fields'),
+      commons: path.join(__dirname, '/src/components/commons'),
+      components: path.join(__dirname, '/src/components'),
     },
   },
 

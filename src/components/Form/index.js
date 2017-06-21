@@ -1,5 +1,6 @@
 import {
   validateFormData,
+  arrayFromObject,
   getRandomId,
 } from 'utils/'
 
@@ -13,21 +14,25 @@ class Form {
   constructor(data = {}, eventHandlers = {}) {
     validateFormData(data)
 
-    this.id = data.id || getRandomId()
+    const { props } = data
+
+    this.id = props.id || getRandomId()
+    this.metadata = arrayFromObject(props)
     this.fields = data.fields || []
     this.eventHandlers = eventHandlers
     this.element
 
-    this.renderForm(data)
+    this.renderForm()
     this.renderFields()
     // this.bindFormEventListeners(eventHandlers)
   }
 
-  renderForm({ id = this.id, name = this.id }) {
+  renderForm() {
     const form = document.createElement('form')
 
-    form.setAttribute('id', id)
-    form.setAttribute('name', name)
+    this.metadata.map(({ attr, value }) =>
+      form.setAttribute(attr, value)
+    )
 
     this.element = form
   }

@@ -1,4 +1,4 @@
-const arrayFromObject = (object = {}, keyName = 'type', valueName = 'meta') => {
+const arrayFromObject = (object = {}, keyName = 'attr', valueName = 'value') => {
   const result = []
   const entries = Object.entries(object)
 
