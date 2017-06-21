@@ -20,6 +20,12 @@
   color: @red;
 }
 
+.input:not(:placeholder-shown) ~ .input-label,
+.input:focus ~ .input-label {
+  font-size: 10px;
+  margin-top: -57px;
+}
+
 .input-label {
   position: absolute;
   color: @gray;
@@ -27,11 +33,4 @@
   margin-left: 30px;
   font-size: 14px;
   transition: 0.1s ease all;
-}
-
-.input:focus ~ .input-label,
-input:not(:focus):valid ~ .input-label,
-input:not(:focus):invalid ~ .input-label {
-  font-size: 10px;
-  margin-top: -57px;
 }
