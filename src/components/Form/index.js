@@ -18,6 +18,7 @@ class Form {
     const { props } = data
 
     this.id = props.id || getRandomId()
+    this.props = props
     this.metadata = arrayFromObject(props)
     this.fields = data.fields || []
     this.eventHandlers = eventHandlers
@@ -25,7 +26,23 @@ class Form {
 
     this.renderForm()
     this.renderFields()
-    // this.bindFormEventListeners(eventHandlers)
+  }
+
+  getFormData() {
+    const values = {}
+
+    this.fields.forEach(field => {
+      const { props } = field
+      const { id, name, value } = props
+      const key = name || id
+
+      values[key] = value
+    })
+
+    return {
+      values: values,
+      fields: Object.assign({}, this.fields),
+    }
   }
 
   handleFormSubmit = (event) => {
@@ -35,7 +52,7 @@ class Form {
       throw new Error('Form onSubmit eventHandler function is invalid!')
     }
 
-    return onSubmit(event, this)
+    return onSubmit(event, this.getFormData(), this)
   }
 
   renderForm() {
@@ -66,7 +83,7 @@ class Form {
           })
         case 'input':
           return new TextInput(field, {
-            keyPress: onInputChange,
+            keyUp: onInputChange,
           })
         case 'upload':
           return new Upload(field, {
@@ -89,9 +106,6 @@ class Form {
       this.element.appendChild(child.element)
     )
   }
-
-  // bindFormEventListeners(eventHandlers) {
-  // }
 }
 
 export default Form

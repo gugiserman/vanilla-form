@@ -28,7 +28,7 @@ const eventHandlers = {
     }, 2000)
   },
 
-  onSubmit(event, form) {
+  onSubmit(event, formData, form) {
     event.preventDefault()
     console.log('form submit', event, form)
   },
