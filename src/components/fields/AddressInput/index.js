@@ -6,6 +6,7 @@ class AddressInput extends Input {
     super(data, eventHandlers)
 
     this._isLoading = false
+    this._isInteractingWithin = false
     this.placesService = new PlacesService(this.inputElement)
 
     this.bindPlaceSearch()
@@ -53,6 +54,19 @@ class AddressInput extends Input {
     }
   }
 
+  handleChildrenMousedown = () => {
+    this._isInteractingWithin = true
+  }
+
+  handleInputBlur = () => {
+    if (this._isInteractingWithin) {
+      return false
+    }
+
+    this._isInteractingWithin = false
+    this.closeResults()
+  }
+
   handlePlaceClick(event, address) {
     this.inputElement.value = address
     this.props.value = address
@@ -83,6 +97,7 @@ class AddressInput extends Input {
     const container = document.createElement('div')
     const list = document.createElement('ul')
 
+    container.addEventListener('mousedown', this.handleChildrenMousedown)
     container.setAttribute('id', `${this.id}-results-container`)
     container.setAttribute('class', 'address-results-container')
     list.setAttribute('id', `${this.id}-results`)
@@ -119,6 +134,7 @@ class AddressInput extends Input {
 
   bindPlaceSearch() {
     this.inputElement.className += ' address-input'
+    this.inputElement.addEventListener('blur', this.handleInputBlur)
     this.inputElement.addEventListener('keyup', this.handleInputChange)
   }
 }
