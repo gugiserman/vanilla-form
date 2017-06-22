@@ -30,7 +30,7 @@ const eventHandlers = {
 
   onSubmit(event, formData, form) {
     event.preventDefault()
-    console.log('form submit', event, form)
+    console.log('form submit', event, formData, form)
   },
 }
 

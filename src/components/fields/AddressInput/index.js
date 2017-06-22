@@ -55,6 +55,7 @@ class AddressInput extends Input {
 
   handlePlaceClick(event, address) {
     this.inputElement.value = address
+    this.props.value = address
     this.closeResults()
   }
 
@@ -102,11 +103,13 @@ class AddressInput extends Input {
 
     if (!value || !value.length) {
       this.isLoading = false
+      this.props.value = ''
       this.closeResults()
       return false
     }
 
     this.isLoading = true
+    this.props.value = value
 
     this.placesService.textSearch({ query: value }, results => {
       this.isLoading = false
