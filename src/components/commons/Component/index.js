@@ -36,13 +36,13 @@ class Component {
         return null
     }
 
-    const input = document.createElement(tagName)
+    const tag = document.createElement(tagName)
 
     this.metadata.map(({ attr, value }) =>
-      input.setAttribute(attr, value)
+      tag.setAttribute(attr, value)
     )
 
-    this.element = input
+    this.element = tag
   }
 
   bindEventListeners() {
