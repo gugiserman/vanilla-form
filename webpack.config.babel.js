@@ -1,7 +1,6 @@
 import webpack from 'webpack'
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import glob from 'glob'
 import { getIfUtils, removeEmpty } from 'webpack-config-utils'
 
 const { ifProduction, ifDevelopment } = getIfUtils(process.env.NODE_ENV)
