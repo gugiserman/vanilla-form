@@ -27,6 +27,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
@@ -50,6 +51,36 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "babel-polyfill": "^6.23.0"
+    "babel-polyfill": "^6.23.0",
+    "global": "^4.3.2"
+  },
+  "jest": {
+    "modulePaths": [
+      "/shared/vendor/modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules",
+      "bower_components",
+      "shared"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^config$": "<rootDir>/configs/app-config.js",
+      "utils": "<rootDir>/src/utils",
+      "style": "<rootDir>/src/style",
+      "assets": "<rootDir>/src/assets",
+      "fields": "<rootDir>/src/components/fields",
+      "commons": "<rootDir>/src/components/commons",
+      "components": "<rootDir>/src/components",
+      "mock": "<rootDir>/src/mock/index.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    }
   }
 }
