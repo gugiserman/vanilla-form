@@ -1,4 +1,5 @@
 import { Input } from 'commons/'
+import { debounce } from 'utils/'
 const { PlacesService } = window.google.maps.places
 
 class AddressInput extends Input {
@@ -135,7 +136,7 @@ class AddressInput extends Input {
   bindPlaceSearch() {
     this.inputElement.className += ' address-input'
     this.inputElement.addEventListener('blur', this.handleInputBlur)
-    this.inputElement.addEventListener('keyup', this.handleInputChange)
+    this.inputElement.addEventListener('keyup', debounce(this.handleInputChange, 200))
   }
 }
 

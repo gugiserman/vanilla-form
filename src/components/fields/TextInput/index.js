@@ -14,13 +14,12 @@ class TextInput extends Input {
   }
 
   bindMask() {
-    /* # TODO: Solve issue and stop removing these keys from mask */
     if (!this.props.mask) {
       return false
     }
 
+    /* # TODO: Solve issue and stop removing spaces from mask */
     this.props.mask = this.props.mask.replace(/\s/g, '')
-    /* end-todo */
 
     const { mask } = this.props
 
