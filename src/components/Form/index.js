@@ -41,7 +41,7 @@ class Form {
 
     return {
       values: values,
-      fields: Object.assign({}, this.fields),
+      fields: [].concat(this.fields),
     }
   }
 

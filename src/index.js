@@ -2,6 +2,7 @@ import 'babel-polyfill'
 
 import Form from 'components/Form'
 import data from 'mock/mock.json'
+import { mergeSavedData } from 'utils/'
 
 import 'style/index.less'
 
@@ -31,10 +32,12 @@ const eventHandlers = {
   onSubmit(event, formData, form) {
     event.preventDefault()
     console.log('form submit', event, formData, form)
+
+    localStorage.setItem('vanilla_form_data', JSON.stringify(formData))
   },
 }
 
-const form = new Form(data, eventHandlers)
+const form = new Form(mergeSavedData(data), eventHandlers)
 const formContainer = document.createElement('div')
 const container = document.getElementById('app-container')
 
